@@ -23,6 +23,6 @@ app.listen(PORT, () => {
   console.log(
     `${chalk.green.bold('✔')} 👍 server running in ${chalk.yellow.bold(
       process.env.NODE_ENV
-    )} mode on port ${chalk.blue.bold(process.env.PORT)}`
+    )} mode on port ${chalk.blue.bold(PORT)}`
   );
 });

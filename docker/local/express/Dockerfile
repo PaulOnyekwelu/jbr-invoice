@@ -18,9 +18,10 @@ RUN addgroup --system invoice \
 COPY package*.json ./
 RUN npm install
 
+# RUN chown -R jbr:invoice ${APP_HOME}
+
 COPY --chown=jbr:invoice . ${APP_HOME}
 
-RUN chown jbr:invoice ${APP_HOME}
 
 USER jbr
 
