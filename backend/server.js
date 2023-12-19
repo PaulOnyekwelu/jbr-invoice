@@ -3,7 +3,10 @@ import morgan from 'morgan';
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import { morganMiddleware, systemLogs } from './utils/logger.js';
+import connectionToDB from './configs/connectDB.js';
 import 'dotenv/config';
+
+await connectionToDB()
 
 const app = express();
 const PORT = process.env.PORT || 8000;
