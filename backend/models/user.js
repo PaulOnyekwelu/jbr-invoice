@@ -6,14 +6,14 @@ import { USER } from '../constants/index.js';
 
 const { Schema, Model } = mongoose;
 
-const userSchema = Schema(
+const userSchema = new Schema(
   {
     email: {
       type: String,
       lowercase: true,
       required: true,
       unique: true,
-      validate: [validator.isEmail, 'Please provide a valid Email Address'],
+      validate: [validator.isEmail, 'Please provide a valid Email Address']
     },
     username: {
       type: String,
