@@ -13,7 +13,7 @@ const userSchema = new Schema(
       lowercase: true,
       required: true,
       unique: true,
-      validate: [validator.isEmail, 'Please provide a valid Email Address']
+      validate: [validator.isEmail, 'Please provide a valid Email Address'],
     },
     username: {
       type: String,
