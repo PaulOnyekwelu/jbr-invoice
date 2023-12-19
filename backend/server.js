@@ -4,6 +4,7 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import { morganMiddleware, systemLogs } from './utils/logger.js';
 import connectionToDB from './configs/connectDB.js';
+import { errorHandler, notFound } from "./middlewares/errorMiddleware.js";
 import 'dotenv/config';
 
 await connectionToDB()
@@ -18,11 +19,17 @@ if (process.env.NODE_ENV === 'development') {
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+// morgan middleware for system logging
 app.use(morganMiddleware);
 
 app.get('/api/v1/test', (req, res) => {
   return res.json({ status: 'it works!!!' });
 });
+
+// the error handling middlewares
+app.use(notFound)
+app.use(errorHandler)
 
 app.listen(PORT, () => {
   console.log(
