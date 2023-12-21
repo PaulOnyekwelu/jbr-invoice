@@ -3,12 +3,13 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import handlebars from 'handlebars';
-
 import transporter from '../helpers/emailTransporter.js';
 import { systemLogs } from './logger.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+console.log('filename: ', __filename, '__dirname', __dirname);
 
 const sendEmail = async (email, subject, payload, template) => {
   try {
@@ -27,3 +28,5 @@ const sendEmail = async (email, subject, payload, template) => {
     systemLogs(`Email not sent: ${error}\n`);
   }
 };
+
+export default sendEmail;

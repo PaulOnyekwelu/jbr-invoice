@@ -6,6 +6,7 @@ import { morganMiddleware, systemLogs } from './utils/logger.js';
 import connectionToDB from './configs/connectDB.js';
 import { errorHandler, notFound } from "./middlewares/errorMiddleware.js";
 import 'dotenv/config';
+// import verifyEmail from './controllers/auth/verifyEmailController.js';
 
 await connectionToDB()
 
@@ -22,6 +23,8 @@ app.use(cookieParser());
 
 // morgan middleware for system logging
 app.use(morganMiddleware);
+
+// app.get('/api/v1/auth/verify/aaaaaaa/bbbbbbb', verifyEmail)
 
 app.get('/api/v1/test', (req, res) => {
   return res.json({ status: 'it works!!!' });

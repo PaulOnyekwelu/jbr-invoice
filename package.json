@@ -30,6 +30,7 @@
     "mongoose": "^8.0.3",
     "morgan": "^1.10.0",
     "node-mailer": "^0.1.1",
+    "validator": "^13.11.0",
     "winston": "^3.11.0",
     "winston-daily-rotate-file": "^4.7.1"
   }
