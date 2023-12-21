@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import nodemailer from 'node-mailer';
+import nodemailer from 'nodemailer';
 
 let transporter;
 

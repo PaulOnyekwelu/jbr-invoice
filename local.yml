@@ -58,6 +58,8 @@ services:
       ME_CONFIG_MONGODB_SERVER: mongodb
       ME_CONFIG_BASICAUTH_USERNAME: admin
       ME_CONFIG_BASICAUTH_PASSWORD: admin12345
+    networks:
+      - invoice-net
 
   mailhog:
     image: mailhog/mailhog:v1.0.1

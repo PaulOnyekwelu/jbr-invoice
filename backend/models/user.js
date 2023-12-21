@@ -1,10 +1,10 @@
 import 'dotenv/config';
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
-import validator from 'validator';
+import validator from "validator";
 import { USER } from '../constants/index.js';
 
-const { Schema, Model } = mongoose;
+const { Schema } = mongoose;
 
 const userSchema = new Schema(
   {
@@ -64,11 +64,12 @@ const userSchema = new Schema(
     },
     phoneNumber: {
       type: String,
-      default: '+44123456789',
-      validate: [
-        validator.isMobilePhone,
-        'Please provide a valid Phone number',
-      ],
+      default: '+4407806603443',
+      required: false,
+      // validate: [
+      //   validator.isMobilePhone,
+      //   'Please provide a valid Phone number',
+      // ],
     },
     isEmailVerified: {
       type: Boolean,
@@ -130,6 +131,6 @@ userSchema.methods.comparePassword = async function (givenPassword) {
   return bcrypt.compare(givenPassword, this.password);
 };
 
-const User = Model('User', userSchema);
+const User = mongoose.model('User', userSchema);
 
 export default User;

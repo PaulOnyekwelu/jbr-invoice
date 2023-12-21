@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const { Schema, Model } = mongoose;
+const { Schema } = mongoose;
 
 const verifyResetTokenSchema = new Schema({
   _userId: {
@@ -20,6 +20,6 @@ const verifyResetTokenSchema = new Schema({
   },
 });
 
-const VerifyResetToken = Model('VerifyResetToken', verifyResetTokenSchema);
+const VerifyResetToken = mongoose.model('VerifyResetToken', verifyResetTokenSchema);
 
 export default VerifyResetToken;

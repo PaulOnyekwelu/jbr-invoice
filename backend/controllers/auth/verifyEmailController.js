@@ -11,8 +11,8 @@ const domainUrl = process.env.DOMAIN;
 // $-path    GET /api/v1/auth/verify/:emailToken/:userId
 // $-auth    Public
 const verifyUserEmail = expressAsyncHandler(async (req, res) => {
-  console.log({ params: req.params });
-  const user = await User.findOne({ _id: req.params.userId }).select(
+  const {userId, emailToken} = req.params;
+  const user = await User.findOne({ _id: userId }).select(
     '-password'
   );
   if (!user) errorResponse(res, 'User does not exist!');
