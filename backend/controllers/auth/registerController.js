@@ -66,7 +66,7 @@ const registerUser = expressAsyncHandler(async (req, res) => {
     './emails/templates/verifyEmail.handlebars'
   );
 
-  res.json({
+  return res.json({
     success: true,
     message:
       'Registration Successful. A message has been sent to the registered email for verification. Verification message expires in 15 minutes.',

@@ -13,7 +13,7 @@ const checkAuth = expressAsyncHandler((req, res, next) => {
 
   jwt.verify(
     jwt_token,
-    process.env.JWT_ACCESS_SECRET_TOKEN,
+    process.env.JWT_ACCESS_SECRET_KEY,
     async (err, decoded) => {
       if (err) return res.sendStatus(403);
 
